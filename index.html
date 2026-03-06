@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedido para Editora EyE Book Sellers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <h2><i class="fas fa-book-open"></i> Pedido para Editora EyE Book Sellers</h2>
+  <form id="pedidoForm" novalidate>
+    <div class="form-group">
+      <i class="fas fa-user"></i>
+      <input type="text" id="profesor" placeholder="Nombre del Solicitante" required />
+      <span class="error-message">Campo requerido</span>
+    </div>
+    
+    <div class="form-group">
+      <i class="fas fa-id-card"></i>
+      <input type="number" id="ruc" placeholder="C.I./R.U.C" required />
+      <span class="error-message">Campo requerido (solo números)</span>
+    </div>
+    
+    <div class="form-group">
+      <i class="fas fa-school"></i>
+      <input type="text" id="colegio" placeholder="Escuela/Colegio" required />
+      <span class="error-message">Campo requerido</span>
+    </div>
+    
+    <div class="form-group">
+      <i class="fas fa-city"></i>
+      <input type="text" id="ciudad" placeholder="Ciudad" required />
+      <span class="error-message">Campo requerido</span>
+    </div>
+    
+    <div class="form-group">
+      <i class="fas fa-id-badge"></i>
+      <input type="text" id="referencia" placeholder="Referencia Personal (opcional)" />
+    </div>
+    
+    <div id="pedidosContainer">
+      <div class="pedido">
+        <button class="eliminar-pedido"><i class="fas fa-times"></i></button>
+        <div class="pedido-row">
+          <div class="form-group">
+            <i class="fas fa-book"></i>
+            <input type="text" class="materia" placeholder="Nombre de la Materia" required />
+            <span class="error-message">Campo requerido</span>
+          </div>
+          <div class="form-group">
+            <i class="fas fa-graduation-cap"></i>
+            <select class="curso" required>
+              <option value="">Seleccione grado/curso</option>
+              <option value="Pre Jardín">Pre Jardín</option>
+              <option value="Jardín">Jardín</option>
+              <option value="Pre Escolar">Pre Escolar</option>
+              <option value="1er Grado">1er Grado</option>
+              <option value="2do Grado">2do Grado</option>
+              <option value="3er Grado">3er Grado</option>
+              <option value="4to Grado">4to Grado</option>
+              <option value="5to Grado">5to Grado</option>
+              <option value="6to Grado">6to Grado</option>
+              <option value="7mo Grado">7mo Grado</option>
+              <option value="8vo Grado">8vo Grado</option>
+              <option value="9no Grado">9no Grado</option>
+              <option value="1er Curso">1er Curso</option>
+              <option value="2do Curso">2do Curso</option>
+              <option value="3er Curso">3er Curso</option>
+              <option value="1er Curso Técnico">1er Curso Técnico</option>
+              <option value="2do Curso Técnico">2do Curso Técnico</option>
+              <option value="3er Curso Técnico">3er Curso Técnico</option>
+            </select>
+            <span class="error-message">Seleccione una opción</span>
+          </div>
+          <div class="form-group">
+            <i class="fas fa-sort-numeric-up"></i>
+            <input type="number" class="cantidad" placeholder="Cantidad" required min="1" />
+            <span class="error-message">Cantidad debe ser mayor a 0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="total-container">
+      <span>Total de libros: </span>
+      <span id="total-libros">1</span>
+    </div>
+    
+    <div class="button-column">
+      <button type="button" id="agregarPedidoBtn"><i class="fas fa-plus-circle"></i> Agregar pedido</button>
+      <button type="button" id="generarPDFBtn"><i class="fas fa-file-pdf"></i> Descargar en PDF</button>
+      <button type="button" id="whatsappBtn"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
+      <button type="button" id="correoBtn"><i class="fas fa-envelope"></i> Enviar por Correo</button>
+      <button type="button" id="deshacerBtn"><i class="fas fa-undo"></i> Deshacer último pedido</button>
+    </div>
+  </form>
+  
+  <div class="notificacion" id="notificacion"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
